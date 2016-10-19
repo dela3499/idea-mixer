@@ -46,7 +46,7 @@ splash =
     , div 
         [ id "tagline" ]
         [ text "Two clicks. A thousand ideas." ]
-    , img [ src "assets/img/logo.svg" ] []
+    --, img [ src "assets/img/logo.svg" ] []
     , div
         [ id "start"
         , class "button"
