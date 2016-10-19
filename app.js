@@ -11039,14 +11039,6 @@ var _user$project$View$splash = A2(
 					_elm_lang$html$Html$text('Two clicks. A thousand ideas.')
 				])),
 			A2(
-			_elm_lang$html$Html$img,
-			_elm_lang$core$Native_List.fromArray(
-				[
-					_elm_lang$html$Html_Attributes$src('assets/img/logo.svg')
-				]),
-			_elm_lang$core$Native_List.fromArray(
-				[])),
-			A2(
 			_elm_lang$html$Html$div,
 			_elm_lang$core$Native_List.fromArray(
 				[
