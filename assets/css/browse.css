@@ -1,0 +1,60 @@
+#browse.page {
+	height: 100%;	
+	width: 100%;	
+	background: white;
+	font-size: 55px;
+	/*text-align: center;*/
+}
+
+#browse.page .buttons {
+	position: fixed;
+	top: 100px;
+	left: 0;
+	right: 0;
+}
+
+#browse.page .button {
+	font-weight: bold;
+	padding: 30px 80px 30px 80px;
+	color: white;
+}
+
+#browse.page #list1.button {
+	background: #00aad4;
+	line-height: 80px;
+}
+
+#browse.page #list2.button {
+	background: #00aa88;
+	line-height: 80px;
+}
+
+#browse.page .buttons i {
+	float: right;
+	vertical-align: bottom;
+	line-height: 90px;
+}
+
+#browse.page #combinations { 
+	margin-top: 380px;
+}
+
+#browse.page .combination { 
+	padding: 50px 80px 50px 80px;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+#browse.page .item1 {
+	color: #00aad4;
+}
+
+#browse.page .plus {
+	color: grey;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#browse.page .item2 {
+	padding-top: 10px;
+	color: #00aa88;
+}

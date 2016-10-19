@@ -10615,12 +10615,193 @@ var _user$project$Util$toggleMember = F2(
 		return A2(_elm_lang$core$Set$member, value, set) ? A2(_elm_lang$core$Set$remove, value, set) : A2(_elm_lang$core$Set$insert, value, set);
 	});
 
-var _user$project$View$page = function (model) {
+var _user$project$View$groups = _elm_lang$core$Native_List.fromArray(
+	[
+		{
+		name: 'My lists',
+		lists: _elm_lang$core$Native_List.fromArray(
+			[
+				{
+				name: 'Tim Ferriss',
+				items: _elm_lang$core$Native_List.fromArray(
+					['80/20 rule', 'DiSSS', 'CaFE', 'thought experiment'])
+			},
+				{
+				name: 'Tim Ferriss',
+				items: _elm_lang$core$Native_List.fromArray(
+					['80/20 rule', 'DiSSS', 'CaFE', 'thought experiment'])
+			},
+				{
+				name: 'Tim Ferriss',
+				items: _elm_lang$core$Native_List.fromArray(
+					['80/20 rule', 'DiSSS', 'CaFE', 'thought experiment'])
+			}
+			])
+	},
+		{
+		name: 'Business',
+		lists: _elm_lang$core$Native_List.fromArray(
+			[
+				{
+				name: 'Tim Ferriss',
+				items: _elm_lang$core$Native_List.fromArray(
+					['80/20 rule', 'DiSSS', 'CaFE', 'thought experiment'])
+			},
+				{
+				name: 'Tim Ferriss',
+				items: _elm_lang$core$Native_List.fromArray(
+					['80/20 rule', 'DiSSS', 'CaFE', 'thought experiment'])
+			},
+				{
+				name: 'Tim Ferriss',
+				items: _elm_lang$core$Native_List.fromArray(
+					['80/20 rule', 'DiSSS', 'CaFE', 'thought experiment'])
+			}
+			])
+	},
+		{
+		name: 'Engineering',
+		lists: _elm_lang$core$Native_List.fromArray(
+			[
+				{
+				name: 'Tim Ferriss',
+				items: _elm_lang$core$Native_List.fromArray(
+					['80/20 rule', 'DiSSS', 'CaFE', 'thought experiment'])
+			},
+				{
+				name: 'Tim Ferriss',
+				items: _elm_lang$core$Native_List.fromArray(
+					['80/20 rule', 'DiSSS', 'CaFE', 'thought experiment'])
+			},
+				{
+				name: 'Tim Ferriss',
+				items: _elm_lang$core$Native_List.fromArray(
+					['80/20 rule', 'DiSSS', 'CaFE', 'thought experiment'])
+			}
+			])
+	}
+	]);
+var _user$project$View$combinations = _elm_lang$core$Native_List.fromArray(
+	[
+		{ctor: '_Tuple2', _0: '5-iron', _1: '80/20 rule'},
+		{ctor: '_Tuple2', _0: 'pull cart', _1: 'minimum effective dose'},
+		{ctor: '_Tuple2', _0: 'golf ball', _1: 'DiSSS'},
+		{ctor: '_Tuple2', _0: 'long drive', _1: 'CaFE'},
+		{ctor: '_Tuple2', _0: 'tournament', _1: 'thought experiments'},
+		{ctor: '_Tuple2', _0: '5-iron', _1: '80/20 rule'},
+		{ctor: '_Tuple2', _0: 'pull cart', _1: 'minimum effective dose'},
+		{ctor: '_Tuple2', _0: 'golf ball', _1: 'DiSSS'},
+		{ctor: '_Tuple2', _0: 'long drive', _1: 'CaFE'},
+		{ctor: '_Tuple2', _0: 'tournament', _1: 'thought experiments'}
+	]);
+var _user$project$View$randomIcon = A2(
+	_elm_lang$html$Html$i,
+	_elm_lang$core$Native_List.fromArray(
+		[
+			_elm_lang$html$Html_Attributes$class('fa fa-random')
+		]),
+	_elm_lang$core$Native_List.fromArray(
+		[]));
+var _user$project$View$combination = function (_p0) {
+	var _p1 = _p0;
 	return A2(
 		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
 			[
-				_elm_lang$html$Html_Attributes$id('splash'),
+				_elm_lang$html$Html_Attributes$class('combination')
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('item1')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text(_p1._0)
+					])),
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('item2')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text(_p1._1)
+					]))
+			]));
+};
+var _user$project$View$list = function (_p2) {
+	var _p3 = _p2;
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html_Attributes$class('list')
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('listName')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text(_p3.name)
+					])),
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('items')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text(
+						A2(_elm_lang$core$String$join, ', ', _p3.items))
+					]))
+			]));
+};
+var _user$project$View$group = function (_p4) {
+	var _p5 = _p4;
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html_Attributes$class('group')
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('groupName')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text(_p5.name)
+					])),
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('lists')
+					]),
+				A2(_elm_lang$core$List$map, _user$project$View$list, _p5.lists))
+			]));
+};
+var _user$project$View$select = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html_Attributes$id('select'),
 				_elm_lang$html$Html_Attributes$class('page')
 			]),
 		_elm_lang$core$Native_List.fromArray(
@@ -10629,46 +10810,91 @@ var _user$project$View$page = function (model) {
 				_elm_lang$html$Html$div,
 				_elm_lang$core$Native_List.fromArray(
 					[
-						_elm_lang$html$Html_Attributes$id('idea')
+						_elm_lang$html$Html_Attributes$class('nav')
 					]),
 				_elm_lang$core$Native_List.fromArray(
 					[
-						_elm_lang$html$Html$text('idea')
+						A2(
+						_elm_lang$html$Html$i,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('fa fa-angle-left')
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[])),
+						A2(
+						_elm_lang$html$Html$div,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('title')
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html$text('Select list')
+							])),
+						A2(
+						_elm_lang$html$Html$div,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$id('edit'),
+								_elm_lang$html$Html_Attributes$class('button')
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html$text('Edit')
+							]))
 					])),
 				A2(
 				_elm_lang$html$Html$div,
 				_elm_lang$core$Native_List.fromArray(
 					[
-						_elm_lang$html$Html_Attributes$id('mixer')
+						_elm_lang$html$Html_Attributes$id('groups')
+					]),
+				A2(_elm_lang$core$List$map, _user$project$View$group, _user$project$View$groups))
+			]));
+};
+var _user$project$View$browse = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html_Attributes$id('browse'),
+				_elm_lang$html$Html_Attributes$class('page')
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('nav')
 					]),
 				_elm_lang$core$Native_List.fromArray(
 					[
-						_elm_lang$html$Html$text('mixer')
+						A2(
+						_elm_lang$html$Html$i,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('fa fa-angle-left')
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[])),
+						A2(
+						_elm_lang$html$Html$div,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('title')
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html$text('Browse ideas')
+							]))
 					])),
 				A2(
 				_elm_lang$html$Html$div,
 				_elm_lang$core$Native_List.fromArray(
 					[
-						_elm_lang$html$Html_Attributes$id('tagline')
-					]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('Two clicks. A thousand ideas.')
-					])),
-				A2(
-				_elm_lang$html$Html$img,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html_Attributes$src('assets/img/logo.svg')
-					]),
-				_elm_lang$core$Native_List.fromArray(
-					[])),
-				A2(
-				_elm_lang$html$Html$div,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html_Attributes$id('start'),
-						_elm_lang$html$Html_Attributes$class('button')
+						_elm_lang$html$Html_Attributes$class('buttons')
 					]),
 				_elm_lang$core$Native_List.fromArray(
 					[
@@ -10676,24 +10902,113 @@ var _user$project$View$page = function (model) {
 						_elm_lang$html$Html$div,
 						_elm_lang$core$Native_List.fromArray(
 							[
-								_elm_lang$html$Html_Attributes$class('inner')
+								_elm_lang$html$Html_Attributes$id('list1'),
+								_elm_lang$html$Html_Attributes$class('button')
 							]),
 						_elm_lang$core$Native_List.fromArray(
 							[
-								A2(
-								_elm_lang$html$Html$div,
-								_elm_lang$core$Native_List.fromArray(
-									[
-										_elm_lang$html$Html_Attributes$class('inner-2')
-									]),
-								_elm_lang$core$Native_List.fromArray(
-									[
-										_elm_lang$html$Html$text('Start mixing')
-									]))
+								_elm_lang$html$Html$text('golf'),
+								_user$project$View$randomIcon
+							])),
+						A2(
+						_elm_lang$html$Html$div,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$id('list2'),
+								_elm_lang$html$Html_Attributes$class('button')
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html$text('Tim Ferriss'),
+								_user$project$View$randomIcon
 							]))
-					]))
+					])),
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$id('combinations')
+					]),
+				A2(_elm_lang$core$List$map, _user$project$View$combination, _user$project$View$combinations))
 			]));
 };
+var _user$project$View$splash = A2(
+	_elm_lang$html$Html$div,
+	_elm_lang$core$Native_List.fromArray(
+		[
+			_elm_lang$html$Html_Attributes$id('splash'),
+			_elm_lang$html$Html_Attributes$class('page')
+		]),
+	_elm_lang$core$Native_List.fromArray(
+		[
+			A2(
+			_elm_lang$html$Html$div,
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html_Attributes$id('idea')
+				]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html$text('idea')
+				])),
+			A2(
+			_elm_lang$html$Html$div,
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html_Attributes$id('mixer')
+				]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html$text('mixer')
+				])),
+			A2(
+			_elm_lang$html$Html$div,
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html_Attributes$id('tagline')
+				]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html$text('Two clicks. A thousand ideas.')
+				])),
+			A2(
+			_elm_lang$html$Html$img,
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html_Attributes$src('assets/img/logo.svg')
+				]),
+			_elm_lang$core$Native_List.fromArray(
+				[])),
+			A2(
+			_elm_lang$html$Html$div,
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html_Attributes$id('start'),
+					_elm_lang$html$Html_Attributes$class('button')
+				]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					A2(
+					_elm_lang$html$Html$div,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html_Attributes$class('inner')
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							A2(
+							_elm_lang$html$Html$div,
+							_elm_lang$core$Native_List.fromArray(
+								[
+									_elm_lang$html$Html_Attributes$class('inner-2')
+								]),
+							_elm_lang$core$Native_List.fromArray(
+								[
+									_elm_lang$html$Html$text('Start mixing')
+								]))
+						]))
+				]))
+		]));
 var _user$project$View$app = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
@@ -10703,7 +11018,7 @@ var _user$project$View$app = function (model) {
 			]),
 		_elm_lang$core$Native_List.fromArray(
 			[
-				_user$project$View$page(model)
+				_user$project$View$select(model)
 			]));
 };
 

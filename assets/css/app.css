@@ -19,3 +19,32 @@ body {
 	user-select: none;           /* Non-prefixed version, currently
 	                              not supported by any browser */		
 }
+
+.nav {
+	height: 100px;
+	background: white;
+	font-size: 53px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.nav > * {
+	position: absolute;
+}
+
+.nav .title {
+	position: relative;
+	width: 100%;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.nav .fa-angle-left {
+	padding-left: 30px;
+	padding-top: 7px;
+	color: #00aad4;
+	font-size: 80px;
+}
