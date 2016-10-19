@@ -10624,7 +10624,7 @@ var _user$project$View$groups = _elm_lang$core$Native_List.fromArray(
 				{
 				name: 'Tim Ferriss',
 				items: _elm_lang$core$Native_List.fromArray(
-					['80/20 rule', 'DiSSS', 'CaFE', 'thought experiment'])
+					['80/20 rule', 'DiSSS', 'CaFE', 'thought experiment', 'thought experiment', 'thought experiment', 'thought experiment', 'thought experiment', 'thought experiment'])
 			},
 				{
 				name: 'Tim Ferriss',

@@ -176,7 +176,7 @@ combinations =
 groups = 
   [ { name = "My lists"
     , lists = 
-        [ { name = "Tim Ferriss", items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] }
+        [ { name = "Tim Ferriss", items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment", "thought experiment", "thought experiment", "thought experiment", "thought experiment", "thought experiment"] }
         , { name = "Tim Ferriss", items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] }
         , { name = "Tim Ferriss", items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] }
         ]
