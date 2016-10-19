@@ -23,8 +23,38 @@ app msg model =
   case msg of
     NoMsg -> 
       (model, Cmd.none)
-    --SetMode mode -> 
-    --  ({ model | mode = mode }, Cmd.none)
+    
+    SetPage page -> 
+      ({ model | page = page }, Cmd.none)
+
+    SetList listId -> 
+      let list = Dict.get listId model.lists
+      in case list of
+        Nothing -> 
+          let _ = Debug.log "SetList failure, listId:" listId
+          in 
+            (model, Cmd.none)
+
+        Just list' -> 
+          case model.page of
+            Select1 -> 
+              ({ model | list1 = list' }
+              , Cmd.Extra.message (SetPage Browse)
+              )
+
+            Select2 -> 
+              ({ model | list2 = list' }
+              , Cmd.Extra.message (SetPage Browse)
+              )
+
+            _ -> 
+              (model, Cmd.none)
+    
+    SetInitialSeed int -> 
+      let seed = Random.Pcg.initialSeed int
+          (id, seed') = Random.Pcg.step Uuid.Barebones.uuidStringGenerator seed
+      in 
+        ({ model | seed = seed' }, Cmd.none)
 
     --SetListName name -> 
     --  let editList = model.editList

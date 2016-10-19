@@ -15,7 +15,7 @@ import View
 import Update
 import Keyboard
 import Time
---import Ports
+import Ports
 import Random.Pcg
 import Time
 
@@ -30,7 +30,7 @@ main =
 
 subscriptions: Model -> Sub Msg
 subscriptions model = 
-  Sub.none
+  Ports.randomSeed (\int -> SetInitialSeed int)
   --Sub.batch
   --  [ Keyboard.ups KeyUp
   --  , Ports.randomSeed ( \int -> SetInitialSeed int )
@@ -71,22 +71,22 @@ initModel =
             }
           )
         ]
-  , activeLists = 
-      ("db836197-9767-423c-ab74-13f91d59ff9f", "647b5514-5b61-41fa-a47c-4df52df7c1a7")
+  , list1 = 
+      { id = "af48ee10-c95f-43d4-a9be-4cd4cab3fea9"
+      , name = "Companies"
+      , items = ["Uber", "Google", "Facebook", "Apple"]
+      , created = 4.0
+      }
+  , list2 = 
+      { id = "a574832d-461f-4a32-b50f-25c597ecd718"
+      , name = "Foods"
+      , items = ["burgers", "bacon", "sandwiches", "pizza"]
+      , created = 3.0
+      }    
   , editItems = []
   , editItem = ""
   , editListName = ""
   , seed = Random.Pcg.initialSeed 123894123097 --replaced on start
   , t = 0.0
-  }
-
-type alias Model = 
-  { lists: Dict ListId List'
-  , activeLists: (ListId, ListId)
-  --, page: Page
-  , editListName: String 
-  , editItems: List String
-  , editItem: String
-  , seed: Random.Pcg.Seed
-  , t: Float
+  , page = Browse
   }

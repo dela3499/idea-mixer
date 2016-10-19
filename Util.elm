@@ -13,29 +13,11 @@ import Array
 import Types exposing (..)
 
 
-toggleMember: String -> Set String -> Set String
-toggleMember value set = 
-  if Set.member value set then
-    Set.remove value set
-  else
-    Set.insert value set
-
-
-prependToAll: List (List a) -> a -> List (List a)
-prependToAll xs y = 
-  List.map (\x -> y::x) xs
-
-
-combinations: List (List a) -> List (List a)
-combinations lists = 
-  let combine lists accum = 
-        case lists of
-          head::tail -> 
-            combine tail (List.concatMap (prependToAll accum) head)
-          [] -> 
-            accum
-  in 
-    combine (List.reverse lists) [[]] 
+pairs: List a -> List a -> List (a,a)
+pairs xs ys = 
+  xs
+    |> List.map (\x -> (x, ys))
+    |> List.concatMap (\(x, ys) -> List.map (\y -> (x, y)) ys)
 
 
 shuffle x = 
@@ -88,7 +70,4 @@ dropNth list n =
     list
       |> List.indexedMap keep
       |> List.concat
-
-
---getNewList time =
   

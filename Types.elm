@@ -7,8 +7,9 @@ import Random.Pcg
 
 type alias Model = 
   { lists: Dict ListId List'
-  , activeLists: (ListId, ListId)
-  --, page: Page
+  , list1: List'
+  , list2: List'
+  , page: Page
   , editListName: String 
   , editItems: List String
   , editItem: String
@@ -31,7 +32,10 @@ type alias ListId =
 -- Split into view and edit msgs
 type Msg 
   = NoMsg
-  --= SetPage Page
+  | SetPage Page
+  | SetList ListId
+  | SetInitialSeed Int
+   
   --| EditListName String
   --| EditItem
   --| RemoveItem Int
@@ -51,9 +55,11 @@ type Msg
   --| Delete
 
 
---type Mode 
---  = Viewing
---  | Editing
+type Page
+  = Splash
+  | Browse
+  | Select1
+  | Select2
 
 
 --type Focus 

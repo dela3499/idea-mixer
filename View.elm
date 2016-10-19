@@ -15,9 +15,20 @@ import Util
 
 app: Model -> Html Msg
 app model =
+  let _ = Debug.log "model" model 
+  in
   div
     [ id "app" ]
-    [ select model ]
+    [ case model.page of 
+        Splash -> 
+          splash
+        Browse -> 
+          browse model 
+        Select1 -> 
+          select model "Select list #1"
+        Select2 -> 
+          select model "Select list #2"
+    ]
 
 
 splash: Html Msg
@@ -39,6 +50,7 @@ splash =
     , div
         [ id "start"
         , class "button"
+        , onClick (SetPage Browse)
         ]
         [ div
             [ class "inner" ]
@@ -53,68 +65,92 @@ splash =
     ]    
 
 
+nav left center right = 
+  div
+    [ class "nav" ]
+    [ div [ class "left" ] [ left ]
+    , div [ class "center" ] [ center ]
+    , div [ class "right" ] [ right ]
+    ]
+
+
 browse: Model -> Html Msg
 browse model = 
   div
     [ id "browse"
     , class "page"
     ]
-    [ div
-        [ class "nav" ]
-        [ i
-            [ class "fa fa-angle-left" ]
+    [ nav
+        ( i
+            [ class "fa fa-angle-left button" 
+            , onClick (SetPage Splash)
+            ]
             []
-        , div
+        )
+        ( div
             [ class "title" ]
             [ text "Browse ideas" ]
-        ]
+        )
+        ( div [] []
+        ) 
     , div
         [ class "buttons" ]
         [ div
             [ id "list1" 
             , class "button"
+            , onClick (SetPage Select1)
             ]
-            [ text "golf"
+            [ text model.list1.name
             , randomIcon
             ]
         , div
             [ id "list2" 
             , class "button"
+            , onClick (SetPage Select2)
             ]
-            [ text "Tim Ferriss"
+            [ text model.list2.name
             , randomIcon
             ]
         ]
     , div
         [ id "combinations" ]
-        (List.map combination combinations)
+        (List.map 
+          combination 
+          (Util.pairs model.list1.items model.list2.items |> Util.shuffle)
+        )
     ]
 
 
-select: Model -> Html Msg
-select model = 
-  div
-    [ id "select"
-    , class "page"
-    ]
-    [ div
-        [ class "nav" ]
-        [ i
-            [ class "fa fa-angle-left" ]
-            []
-        , div
-            [ class "title" ]
-            [ text "Select list" ]
-        , div
-            [ id "edit" 
-            , class "button"
-            ]
-            [ text "Edit" ]        
-        ]
-    , div 
-        [ id "groups" ]   
-        (List.map group groups)
-    ]
+select: Model -> String -> Html Msg
+select model title = 
+    div
+      [ id "select"
+      , class "page"
+      ]
+      [ nav
+          ( i
+              [ class "fa fa-angle-left button" 
+              , onClick (SetPage Browse)
+              ]
+              []
+          )
+          ( div
+              [ class "title" ]
+              [ text title ]
+          )
+          ( div
+              [ id "edit" 
+              , class "button"
+              ]
+              [ text "Edit" ]
+          )
+      --, div 
+      --    [ id "groups" ]   
+      --    (List.map group groups)
+      , div
+        [ id "lists" ]
+        (List.map list (Dict.values model.lists))
+      ]
 
 
 group { name, lists } =
@@ -129,9 +165,11 @@ group { name, lists } =
     ]
 
 
-list { name, items } = 
+list { name, id, items } = 
   div
-    [ class "list" ]
+    [ class "list" 
+    , onClick (SetList id)
+    ]
     [ div
         [ class "listName" ]
         [ text name ]
@@ -173,26 +211,71 @@ combinations =
   , ("tournament", "thought experiments")
   ]    
 
+
+
+lists = 
+  [ { name = "Tim Ferriss"
+    , id = "1"
+    , items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment", "thought experiment", "thought experiment", "thought experiment", "thought experiment", "thought experiment"] 
+    }
+  , { name = "Golf"
+    , id = "2"
+    , items = ["golf course", "golf club", "par"] 
+    }
+  , { name = "Business"
+    , id = "3"
+    , items = ["investment", "returns", "debt"] 
+    }
+  ]
+
+
 groups = 
   [ { name = "My lists"
     , lists = 
-        [ { name = "Tim Ferriss", items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment", "thought experiment", "thought experiment", "thought experiment", "thought experiment", "thought experiment"] }
-        , { name = "Tim Ferriss", items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] }
-        , { name = "Tim Ferriss", items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] }
+        [ { name = "Tim Ferriss"
+          , id = "1"
+          , items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment", "thought experiment", "thought experiment", "thought experiment", "thought experiment", "thought experiment"] 
+          }
+        , { name = "Tim Ferriss"
+          , id = "2"
+          , items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] 
+          }
+        , { name = "Tim Ferriss"
+          , id = "3"
+          , items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] 
+          }
         ]
     }
   , { name = "Business"
     , lists = 
-        [ { name = "Tim Ferriss", items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] }
-        , { name = "Tim Ferriss", items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] }
-        , { name = "Tim Ferriss", items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] }
+        [ { name = "Tim Ferriss"
+          , id = "1"
+          , items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment", "thought experiment", "thought experiment", "thought experiment", "thought experiment", "thought experiment"] 
+          }
+        , { name = "Tim Ferriss"
+          , id = "2"
+          , items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] 
+          }
+        , { name = "Tim Ferriss"
+          , id = "3"
+          , items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] 
+          }
         ]
     }
   , { name = "Engineering"
     , lists = 
-        [ { name = "Tim Ferriss", items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] }
-        , { name = "Tim Ferriss", items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] }
-        , { name = "Tim Ferriss", items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] }
+        [ { name = "Tim Ferriss"
+          , id = "1"
+          , items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment", "thought experiment", "thought experiment", "thought experiment", "thought experiment", "thought experiment"] 
+          }
+        , { name = "Tim Ferriss"
+          , id = "2"
+          , items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] 
+          }
+        , { name = "Tim Ferriss"
+          , id = "3"
+          , items = ["80/20 rule", "DiSSS", "CaFE", "thought experiment"] 
+          }
         ]
-    }  
+    }
   ]

@@ -10,16 +10,19 @@ background: #00aa88;*/
 }
 
 #select.page #edit {
-	display: inline-block;
+	/*display: inline-block;
 	right: 0;
 	top: 0;
-	padding: 23px;
-	padding-right: 50px;
+	padding: 23px;	
+	padding-right: 50px;*/
 	color: #00aad4;
+	text-align: right;
+	padding-right: 30px;
 }
 
 
-#select.page #groups {
+/*#select.page #groups {*/
+#select.page #lists {
 	margin-top: 100px;
 	margin-bottom: 500px;
 }
@@ -34,7 +37,6 @@ background: #00aa88;*/
 #select.page #groups :first-child .groupName {
 	background: #00aad4;
 }
-
 
 #select.page .list {
 	padding: 50px 80px 50px 80px;

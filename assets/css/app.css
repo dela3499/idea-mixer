@@ -28,23 +28,25 @@ body {
 	top: 0;
 	left: 0;
 	right: 0;
+	padding-bottom: 20px;
+	box-sizing: border-box;
 }
 
 .nav > * {
-	position: absolute;
+	width: 33.3%;
+	height: 100%;
+	display: inline-block;
+	box-sizing: border-box;
 }
 
-.nav .title {
+.nav .center  {
 	position: relative;
-	width: 100%;
-	text-align: center;
-	padding-top: 20px;
-	padding-bottom: 20px;
 }
 
-.nav .fa-angle-left {
+.nav i.fa {
 	padding-left: 30px;
-	padding-top: 7px;
+	/*padding-top: 7px;*/
+	text-align: left;
 	color: #00aad4;
 	font-size: 80px;
 }
