@@ -1,0 +1,21 @@
+body {
+	font-family: Arial;
+	margin: 0px;
+	padding: 0px;
+
+   	text-size-adjust: 100%; 
+    -ms-text-size-adjust: 100%; 
+    -moz-text-size-adjust: 100%; 
+    -webkit-text-size-adjust: 100%;	
+}
+
+.button {
+	cursor: pointer;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* Internet Explorer/Edge */
+	user-select: none;           /* Non-prefixed version, currently
+	                              not supported by any browser */		
+}

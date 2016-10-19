@@ -1,0 +1,66 @@
+#splash.page {
+	background: #1a1a1a;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 100px;
+	font-weight: bold
+}
+
+#splash #idea, #splash #mixer {
+	font-size: 250px;
+	margin-left: -10px;
+	line-height: 0.9em;
+}
+
+#splash #idea, #splash #tagline {
+	color: #e6e6e6;
+}
+
+#splash #mixer {
+	color: #00aad4;
+}
+
+#splash #tagline {
+	font-size: 50px;
+	margin-top: 20px;
+}
+
+#splash img {
+	width: 70%;
+	margin: auto;
+	display: block;
+	margin-top: 150px;
+}
+
+#splash #start {
+	background: #00aa88;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	font-size: 40px;
+	color: white;
+}
+
+#splash #start .inner {
+	position: relative;
+	width: 100%;
+}
+
+#splash #start .inner-2 {
+	position: relative;
+	margin: auto;
+	/*width: 50%;*/
+	padding: 0;
+	text-align: center;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	font-size: 80px;
+}
+
+#splash #start i {
+	padding-left: 60px;
+}
